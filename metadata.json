@@ -1,0 +1,7 @@
+{
+  "name": "PhotoEnhance AI",
+  "description": "Intelligent photo enhancement SaaS app with mobile-first design.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
