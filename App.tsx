@@ -107,8 +107,8 @@ export default function App() {
 
   if (isLoading) {
       return (
-          <div className="flex h-screen items-center justify-center bg-black">
-              <span className="material-symbols-outlined text-primary text-4xl animate-spin">progress_activity</span>
+          <div className="flex h-screen items-center justify-center bg-black" style={{ backgroundColor: '#000', minHeight: '100vh' }}>
+              <span className="material-symbols-outlined text-4xl animate-spin" style={{ color: '#53d22d' }}>progress_activity</span>
           </div>
       );
   }

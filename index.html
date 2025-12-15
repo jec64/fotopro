@@ -8,40 +8,45 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    
+    <!-- FIX: Tailwind Config MUST be defined BEFORE loading the CDN script -->
     <script>
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              primary: "#53d22d",
-              "background-light": "#f6f8f6",
-              "background-dark": "#152012",
-              "surface-light": "#ffffff",
-              "surface-dark": "#1e2b1a",
-              "surface-card-dark": "#1E2A1B", // Specific for profile card
-              "text-secondary-light": "#64748b",
-              "text-secondary-dark": "#94a3b8",
+      window.tailwind = {
+        config: {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                primary: "#53d22d",
+                "background-light": "#f6f8f6",
+                "background-dark": "#152012",
+                "surface-light": "#ffffff",
+                "surface-dark": "#1e2b1a",
+                "surface-card-dark": "#1E2A1B",
+                "text-secondary-light": "#64748b",
+                "text-secondary-dark": "#94a3b8",
+              },
+              fontFamily: {
+                display: ["Manrope", "sans-serif"],
+              },
+              borderRadius: {
+                DEFAULT: "0.75rem",
+                lg: "1rem",
+                xl: "1.5rem",
+                "2xl": "2rem",
+              },
+              boxShadow: {
+                'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                'card': '0 0 0 1px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.04)',
+                'card-dark': '0 0 0 1px rgba(255,255,255,0.05), 0 2px 8px rgba(0,0,0,0.2)',
+              }
             },
-            fontFamily: {
-              display: ["Manrope", "sans-serif"],
-            },
-            borderRadius: {
-              DEFAULT: "0.75rem",
-              lg: "1rem",
-              xl: "1.5rem",
-              "2xl": "2rem",
-            },
-            boxShadow: {
-              'subtle': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-              'card': '0 0 0 1px rgba(0,0,0,0.03), 0 2px 8px rgba(0,0,0,0.04)',
-              'card-dark': '0 0 0 1px rgba(255,255,255,0.05), 0 2px 8px rgba(0,0,0,0.2)',
-            }
           },
-        },
-      };
+        }
+      }
     </script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
     <style>
       .no-scrollbar::-webkit-scrollbar {
         display: none;
@@ -58,6 +63,9 @@
       }
       body {
         -webkit-tap-highlight-color: transparent;
+        /* Fallback background if JS fails */
+        background-color: #000; 
+        color: #fff;
       }
     </style>
   <script type="importmap">
@@ -73,6 +81,6 @@
 </script>
 </head>
   <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white font-display antialiased selection:bg-primary selection:text-black min-h-screen flex flex-col">
-    <div id="root" class="flex-grow flex flex-col"></div>
+    <div id="root" class="flex-grow flex flex-col w-full min-h-screen"></div>
   </body>
 </html>
